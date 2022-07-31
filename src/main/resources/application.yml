@@ -1,0 +1,31 @@
+spring.datasource.url: jdbc:postgresql://localhost:5432/lostpets
+spring.datasource.username: postgres
+spring.datasource.password: oon2022
+spring.datasource.platform: postgres
+spring.datasource.hikari.maximum-pool-size: 3
+spring.datasource.hikari.connectionTimeout: 30000
+spring.datasource.hikari.idleTimeout: 600000
+spring.datasource.hikari.maxLifetime: 18000
+spring.datasource.hikari.maxActive: 3
+spring.datasource.hikari.minIdle: 3
+spring.datasource.hikari.initialSize: 3
+
+spring.database.driverClassName: org.postgresql.Driver
+spring.jackson.serialization.write_dates_as_timestamps: false
+
+spring.jpa.hibernate.naming.implicit-strategy: org.hibernate.boot.model.naming.ImplicitNamingStrategyLegacyHbmImpl
+spring.jpa.hibernate.naming.physical-strategy: org.springframework.boot.orm.jpa.hibernate.SpringPhysicalNamingStrategy
+spring.jpa.database-platform: org.hibernate.dialect.PostgreSQL10Dialect
+spring.jpa.properties.hibernate.current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
+spring.jpa.properties.hibernate.dialect: org.hibernate.dialect.PostgreSQL10Dialect
+spring.jpa.database: POSTGRESQL
+spring.jpa.show-sql: true
+spring.jpa.open-in-view: false
+
+spring.flyway.schemas: public
+flyway.baselineOnMigrate: true
+flyway.check-location: false
+flyway.enabled: true
+flyway.baseline-on-migrate: true
+
+server.port: 9090
