@@ -1,6 +1,6 @@
 package com.lastdogs.secundary.dbo
 
-import com.lastdogs.domain.account.model.Customer
+import com.lastdogs.domain.customer.model.Customer
 import org.springframework.data.annotation.CreatedDate
 import org.springframework.data.annotation.LastModifiedDate
 import java.time.LocalDateTime
@@ -25,7 +25,7 @@ data class CustomerDBO(
 
     @CreatedDate
     @Column(updatable = false)
-    var createdAt: LocalDateTime? = null,
+    var createdAt: LocalDateTime? = LocalDateTime.now(),
 
     @LastModifiedDate
     var updatedAt: LocalDateTime? = LocalDateTime.now(),
