@@ -1,6 +1,6 @@
-spring.datasource.url: jdbc:postgresql://localhost:5432/lostpets
+spring.datasource.url: jdbc:postgresql://localhost:5432/lostPetsCustomer
 spring.datasource.username: postgres
-spring.datasource.password: oon2022
+spring.datasource.password: postgres
 spring.datasource.platform: postgres
 spring.datasource.hikari.maximum-pool-size: 3
 spring.datasource.hikari.connectionTimeout: 30000
@@ -28,4 +28,4 @@ flyway.check-location: false
 flyway.enabled: true
 flyway.baseline-on-migrate: true
 
-server.port: 9090
+server.port: 9393
