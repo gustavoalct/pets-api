@@ -24,7 +24,7 @@ class SubscriptionController(
     @GetMapping
     @ResponseStatus(HttpStatus.OK)
     fun getSubscription(): List<Subscription> {
-        return subscriptionPortAccess.getSubscription();
+        return subscriptionPortAccess.getAllSubscriptions();
     }
 
     @GetMapping("/{subscriptionId}")

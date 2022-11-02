@@ -9,19 +9,18 @@ import java.util.*
 @Component
 class SubscriptionUseCase(
 	private val subscriptionDataAccess: SubscriptionDataAccess
-
 ) : SubscriptionPortAccess {
 
 	override fun create(subscription: Subscription) {
 		subscriptionDataAccess.save(subscription)
 	}
 
-	override fun getSubscription(): List<Subscription> {
+	override fun getAllSubscriptions(): List<Subscription> {
 		return subscriptionDataAccess.getAll()
 	}
 
 	override fun getSubscriptionById(subscriptionId: UUID): Subscription {
-		return subscriptionDataAccess.subscriptionId(subscriptionId)
+		return subscriptionDataAccess.getSubscriptionById(subscriptionId)
 			?: throw Exception("Subscription Not found ${subscriptionId}")
 	}
 

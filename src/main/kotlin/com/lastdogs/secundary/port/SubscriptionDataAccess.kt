@@ -7,6 +7,6 @@ interface SubscriptionDataAccess {
 
 	fun save(subscription: Subscription)
 	fun getAll(): List<Subscription>
-	fun subscriptionId(subscriptionId: UUID): Subscription?
+	fun getSubscriptionById(subscriptionId: UUID): Subscription?
 
 }

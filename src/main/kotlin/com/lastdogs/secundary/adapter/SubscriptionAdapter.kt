@@ -20,7 +20,7 @@ class SubscriptionAdapter(
 		return subscriptionRepository.findAll().map { it.toModel() }
 	}
 
-	override fun subscriptionId(subscriptionId: UUID): Subscription? {
+	override fun getSubscriptionById(subscriptionId: UUID): Subscription? {
 		return subscriptionRepository.getById(subscriptionId).toModel()
 	}
 }
