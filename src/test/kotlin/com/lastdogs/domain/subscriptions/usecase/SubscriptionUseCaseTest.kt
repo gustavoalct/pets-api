@@ -16,8 +16,6 @@ import java.util.UUID
 // TESTES COM O MOCKK
 
 class SubscriptionUseCaseTest {
-	@Autowired
-	lateinit var mockMvc: MockMvc
 	val subscriptions = listOf(SubscriptionTest.build())  // Olhar classe, pois aqui já estabelece os valores esperados
 	val subscriptionById = SubscriptionTest.build()
 	val subscriptionId = UUID.fromString("6b70f410-87e6-46bf-a7b9-c5d0800a1949")
@@ -26,7 +24,7 @@ class SubscriptionUseCaseTest {
 	// val subscriptionDataAccess: SubscriptionDataAccess = mockk() // Exemplo padrão
 	// val paginacao:Pageable = mockk() // exemplo de mock na paginaçaõ
 
-	final val subscriptionDataAccess: SubscriptionDataAccess =
+	val subscriptionDataAccess: SubscriptionDataAccess =
 		mockk { // aqui eu posso simular saidas de acordo com o teste
 			every { getAll() } returns subscriptions   // every recurso do mockk, toda vez que for acontecer algo no metodo faz assim entrega assim
 			every { getSubscriptionById(subscriptionId) } returns subscriptionById

@@ -2,6 +2,7 @@ package com.lastdogs.secundary.adapter
 
 import com.lastdogs.domain.authentication.model.Authentication
 import com.lastdogs.domain.customer.model.Customer
+import com.lastdogs.getOrNull
 import com.lastdogs.secundary.dbo.toDBO
 import com.lastdogs.secundary.port.CustomerDataAccess
 import com.lastdogs.secundary.repository.CustomerRepository
@@ -10,26 +11,26 @@ import java.util.*
 
 @Component
 class CustomerAdapter(
-    val customerRepository: CustomerRepository
+	val customerRepository: CustomerRepository
 ) : CustomerDataAccess {
 
-    override fun createAccount(customer: Customer): Customer {
-        return customerRepository.save(customer.toDBO()).toModel()
-    }
+	override fun createAccount(customer: Customer): Customer {
+		return customerRepository.save(customer.toDBO()).toModel()
+	}
 
-    override fun login(accountLogin: Authentication): Customer? {
-        return customerRepository.findByEmailAndPassword(
-            accountLogin.email,
-            accountLogin.password
-        )?.toModel()
-    }
+	override fun login(accountLogin: Authentication): Customer? {
+		return customerRepository.findByEmailAndPassword(
+			accountLogin.email,
+			accountLogin.password
+		)?.toModel()
+	}
 
-    override fun getCustomerByEmail(email: String): Customer? {
-        return customerRepository.findByEmail(email)?.toModel()
-    }
+	override fun getCustomerByEmail(email: String): Customer? {
+		return customerRepository.findByEmail(email)?.toModel()
+	}
 
-    override fun getCustomerById(customerId: UUID): Customer? {
-        return customerRepository.findById(customerId).get().toModel()
-    }
+	override fun getCustomerById(customerId: UUID) =
+		customerRepository.findById(customerId).getOrNull()?.toModel()
+
 
 }

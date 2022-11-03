@@ -15,15 +15,16 @@ import org.springframework.web.bind.annotation.RestController
 import java.util.*
 
 @RestController
-@RequestMapping("/customer")
+@RequestMapping("/customers")
 class CustomerController(
 	private val customerPortAccess: CustomerPortAccess
 ) {
 
-	@PutMapping("/create")
+	@PutMapping
 	@ResponseStatus(HttpStatus.CREATED)
-	fun create(@RequestBody accountRequest: CustomerRequest) =
-		customerPortAccess.create(accountRequest.toModel())
+	fun create(@RequestBody customerRequest: CustomerRequest) {
+		customerPortAccess.create(customerRequest.toModel())
+	}
 
 	@GetMapping
 	@ResponseStatus(HttpStatus.OK)

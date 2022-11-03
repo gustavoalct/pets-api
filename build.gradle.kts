@@ -28,7 +28,11 @@ dependencies {
 	runtimeOnly("org.postgresql:postgresql")
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
+	// MOCKK
 	testImplementation("io.mockk:mockk:1.12.4")
+	// MOCKITO
+	testImplementation("org.mockito:mockito-core:4.6.1")
+
 
 
 }
