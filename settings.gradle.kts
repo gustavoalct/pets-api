@@ -1,1 +1,2 @@
-rootProject.name = "lastdogs"
+rootProject.name = "pets-api" +
+	""

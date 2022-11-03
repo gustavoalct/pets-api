@@ -20,6 +20,7 @@ class CustomerController(
 	private val customerPortAccess: CustomerPortAccess
 ) {
 
+	// Os customers serão transmitidos através da api customer
 	@PutMapping
 	@ResponseStatus(HttpStatus.CREATED)
 	fun create(@RequestBody customerRequest: CustomerRequest) {
