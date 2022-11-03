@@ -9,5 +9,5 @@ data class LoginResponse(
 
 fun Customer.toLoginResponse() = LoginResponse(
     name = userName,
-    email = email
+    email = email!!
 )

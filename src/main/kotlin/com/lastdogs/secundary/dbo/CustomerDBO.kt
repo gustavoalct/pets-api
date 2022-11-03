@@ -41,6 +41,6 @@ data class CustomerDBO(
 fun Customer.toDBO() = CustomerDBO(
     id = id,
     fullName = userName,
-    email = email,
+    email = email!!,
     password = password
 )

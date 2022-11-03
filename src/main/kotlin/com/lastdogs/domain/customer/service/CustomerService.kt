@@ -7,22 +7,20 @@ import org.springframework.stereotype.Service
 
 @Service
 class CustomerService (
-    val accountDataAccess: CustomerDataAccess
+    val customerDataAccess: CustomerDataAccess
 ){
 
-    fun create(customer: Customer):Customer{
-       accountDataAccess.getCustomerByEmail(customer.email).let {
-            if(it?.email.equals(null))
+    fun createOrUpdate(customer: Customer):Customer{
+        customerDataAccess.getCustomerByEmail(customer.email!!).let {
+            if(it?.email.isNullOrBlank())
                 return saveCustomer(customer)
             else
-                return customer
+                return saveCustomer(customer.toUpdate(customer))
         }
     }
 
     private fun saveCustomer(customer: Customer):Customer{
-        return accountDataAccess.createAccount(customer = customer)
+        return customerDataAccess.createAccount(customer = customer)
     }
-
-
 
 }

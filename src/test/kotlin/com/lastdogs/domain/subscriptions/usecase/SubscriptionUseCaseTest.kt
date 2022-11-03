@@ -13,6 +13,8 @@ import org.springframework.test.web.servlet.MockMvc
 import java.util.Optional
 import java.util.UUID
 
+// TESTES COM O MOCKK
+
 class SubscriptionUseCaseTest {
 	@Autowired
 	lateinit var mockMvc: MockMvc

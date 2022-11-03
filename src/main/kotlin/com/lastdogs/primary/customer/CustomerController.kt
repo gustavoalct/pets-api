@@ -2,26 +2,32 @@ package com.lastdogs.primary.customer
 
 import com.lastdogs.domain.customer.port.CustomerPortAccess
 import com.lastdogs.primary.customer.dto.request.CustomerRequest
-import com.lastdogs.primary.customer.dto.response.CreateAccountResponse
+import com.lastdogs.primary.customer.dto.response.CustomerResponse
 import com.lastdogs.primary.customer.dto.response.toResponse
 import org.springframework.http.HttpStatus
-import org.springframework.web.bind.annotation.PostMapping
+import org.springframework.web.bind.annotation.GetMapping
+import org.springframework.web.bind.annotation.PutMapping
 import org.springframework.web.bind.annotation.RequestBody
+import org.springframework.web.bind.annotation.RequestHeader
 import org.springframework.web.bind.annotation.RequestMapping
 import org.springframework.web.bind.annotation.ResponseStatus
 import org.springframework.web.bind.annotation.RestController
+import java.util.*
 
 @RestController
-@RequestMapping("/account")
+@RequestMapping("/customer")
 class CustomerController(
-    private val accountPortAccess: CustomerPortAccess
+	private val customerPortAccess: CustomerPortAccess
 ) {
 
-    @PostMapping("/create")
-    @ResponseStatus(HttpStatus.CREATED)
-    fun create(@RequestBody accountRequest: CustomerRequest): CreateAccountResponse {
-        return accountPortAccess.create(accountRequest.toModel()).toResponse()
-    }
+	@PutMapping("/create")
+	@ResponseStatus(HttpStatus.CREATED)
+	fun create(@RequestBody accountRequest: CustomerRequest) =
+		customerPortAccess.create(accountRequest.toModel())
 
+	@GetMapping
+	@ResponseStatus(HttpStatus.OK)
+	fun getCustomerById(@RequestHeader customerId: UUID): CustomerResponse =
+		customerPortAccess.getCustomerById(customerId).toResponse()
 
 }

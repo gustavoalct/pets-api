@@ -6,6 +6,7 @@ import com.lastdogs.secundary.dbo.toDBO
 import com.lastdogs.secundary.port.CustomerDataAccess
 import com.lastdogs.secundary.repository.CustomerRepository
 import org.springframework.stereotype.Component
+import java.util.*
 
 @Component
 class CustomerAdapter(
@@ -25,6 +26,10 @@ class CustomerAdapter(
 
     override fun getCustomerByEmail(email: String): Customer? {
         return customerRepository.findByEmail(email)?.toModel()
+    }
+
+    override fun getCustomerById(customerId: UUID): Customer? {
+        return customerRepository.findById(customerId).get().toModel()
     }
 
 }
